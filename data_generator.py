@@ -4,10 +4,11 @@ from models import create_process
 
 
 def generate_processes(k=250):
+    random.seed(4320)
     processes = []
 
     for pid in range(1, k + 1):
-        burst_cycles = random.randint(10**6, 10**12)
+        burst_cycles = random.randint(10 * 10**6, 10 * 10**12)
         memory_mb = random.randint(1, 16 * 1024)
         arrival_time = 0
 

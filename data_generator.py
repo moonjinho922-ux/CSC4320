@@ -3,14 +3,14 @@ import random
 from models import create_process
 
 
-def generate_processes(k=250):
+def generate_processes(k=250, sequential_arrival=False, arrival_gap=1):
     random.seed(4320)
     processes = []
 
     for pid in range(1, k + 1):
         burst_cycles = random.randint(10 * 10**6, 10 * 10**12)
         memory_mb = random.randint(1, 16 * 1024)
-        arrival_time = 0
+        arrival_time = (pid - 1) * arrival_gap if sequential_arrival else 0
 
         process = create_process(pid, burst_cycles, memory_mb, arrival_time)
         processes.append(process)

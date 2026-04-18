@@ -27,5 +27,6 @@ This will:
 ## Notes
 
 - All processes are assigned `arrival_time = 0` for Q1–Q3 (full batch is available upfront)
-- Q4 uses the same data but processes in arrival (pid) order with no sorting — simulating an online scheduler
+- Q3 is evaluated on the first 200 processes to match the assignment prompt, and Q2 is rerun on the same 200-process prefix for comparison
+- Q4 uses a sequential-arrival copy of the same workload so the scheduler sees jobs one by one in arrival order
 - Burst times are large (up to 10¹² cycles), so turnaround times are in the thousands of seconds by design
